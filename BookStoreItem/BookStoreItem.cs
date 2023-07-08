@@ -24,7 +24,7 @@ namespace BookStoreItem
         /// <param name="publisher">A book publisher.</param>
         /// <param name="isbn">A book ISBN.</param>
         public BookStoreItem(string authorName, string title, string publisher, string isbn)
-            : this(authorName, null, title, publisher, isbn, null, string.Empty, 0, "USD", 0)
+            : this(authorName, title, publisher, isbn, null, string.Empty, 0, "USD", 0)
         {
         }
 
@@ -54,7 +54,7 @@ namespace BookStoreItem
         /// <param name="currency">A price currency.</param>
         /// <param name="amount">An amount of books in the store's stock.</param>
         public BookStoreItem(string authorName, string title, string publisher, string isbn, DateTime? published, string bookBinding, decimal price, string currency, int amount)
-            : this(authorName, null, title, publisher, isbn, published, bookBinding, price, currency, amount)
+            : this(authorName, null!, title, publisher, isbn, published, bookBinding, price, currency, amount)
         {
         }
 
@@ -242,7 +242,7 @@ namespace BookStoreItem
         public override string ToString()
         {
             string representationPrice = this.price.ToString("N", CultureInfo.InvariantCulture);
-            if (representationPrice.Contains(','))
+            if (representationPrice.Contains(',', StringComparison.InvariantCulture))
             {
                 representationPrice = $"\"{representationPrice} {this.Currency}\"";
             }
