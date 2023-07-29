@@ -1,7 +1,5 @@
 using System.Globalization;
 
-[assembly: CLSCompliant(true)]
-
 namespace BookStoreItem
 {
     /// <summary>
